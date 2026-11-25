@@ -1,0 +1,328 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "drupal",
+ "tag": "11.4.13-CE-ubuntu24.04-r2",
+ "tarball": "ReadyStack-drupal-11.4.13-CE-ubuntu24.04-r2.tar.gz",
+ "tarball_sha256": "4b2604f00bd2f7d2a85deff85008c5e77dc57b0e39b46ec875a4ecdded87168f",
+ "kit_root": "11.4.13-CE-ubuntu24.04-r2",
+ "generated_at": "2026-11-25T00:39:44Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/drupal/recommended-project",
+   "ref": "11.4.13",
+   "commit": "4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
+   "url": "https://github.com/drupal/recommended-project/tree/4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/drupal/recommended-project",
+    "ref": "11.4.13"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0"
+  },
+  "build_method": "source-rebuild-php",
+  "source_date_epoch": 1795543178,
+  "source_date_epoch_utc": "2026-11-24T17:59:38Z",
+  "target": {
+   "image_manifest_digest": "sha256:4b781b0f1987b15518458619f18bab4c9d649a9cebd298634e937818f00a7b6b",
+   "config_digest": "sha256:a324189ac3ebd69debe76e8bbd891496a544319f4c0973d8a010c08f6a496326",
+   "image": "readystack/drupal:11.4.13-CE-ubuntu24.04-r2"
+  },
+  "checksummed_files": 15866
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 121,
+   "sha256": "c506d719c30d576fe42dd46d1cf2a9a05f4f3f364b41e02e4ffad3a1fc19500e",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 2384672,
+   "sha256": "fef173461cc26940ba7996a0c270e9a7f72af6af94e54eab1a9c67f8a2b37071",
+   "lines": 15866,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 6306,
+   "sha256": "44b8b8cf9635965ede634ab5be6ab3783e3d868a50a30324e9fb053ed77239fb",
+   "lines": 64,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 6306,
+   "sha256": "44b8b8cf9635965ede634ab5be6ab3783e3d868a50a30324e9fb053ed77239fb",
+   "lines": 64,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 6306,
+   "sha256": "44b8b8cf9635965ede634ab5be6ab3783e3d868a50a30324e9fb053ed77239fb",
+   "lines": 64,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 2420,
+   "sha256": "00edf3ca456ae4f8df600a46b69f6a98b6a711b6192d08e37a97bc3004d2b13c",
+   "lines": 22,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 1574707,
+   "sha256": "b4042cda96172bc6ff61c67741051e8f13b2303e6a4a5090e376c617fb512312",
+   "lines": 18943,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 1305814,
+   "sha256": "0a7dbee08055918facd627423e3c200a227f2bad53e71072783a54a174688a7e",
+   "lines": 15868,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "README.md",
+   "size": 3291,
+   "sha256": "5d58fcd49a3238399b41bfd3b1e3a55d7f51574a0de29509aaa477b891d011a0",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "88660fd83d77a2705a3ad22cd3ab7e5fdb7e6741e76ac42333841662a40da9c7",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 321,
+   "sha256": "1a9f0b958b6df2ec7c81a3b6c955d8f9f4a2359f6057ad6245694982089cad8a",
+   "lines": 7,
+   "public": "full"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "apache2-foreground",
+   "size": 732,
+   "sha256": "003f1949772aed38f5bc2cc4dd3193b3277f979735fd94bb18b863169b3c260d",
+   "lines": 18,
+   "public": "account"
+  },
+  {
+   "path": "docker-entrypoint.sh",
+   "size": 473,
+   "sha256": "14731358369d2a88fb19bca2b3a731a6ce69b48ce54879475337a2e5212cc702",
+   "lines": 14,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2587,
+   "sha256": "489ef848f7bddc79c2cbb5920627c51932078af6125f655c66124a73cdb79c85",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6155,
+   "sha256": "320c67cfbb8354a16bad4684ab8b8b5e649752dfff925aefbb089178d6523fb9",
+   "lines": 60,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2029,
+   "sha256": "945f0872bce43642b64350639bc4164259a9479ac9dd725b51e6d3043e2ac748",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 49,
+   "sha256": "0633357c2a2e2cb0c58d48bc070c1e16231f94c4c547cd5c0ab1cd1e8d8a630a",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 4843,
+   "sha256": "4fcedda351ab77bb5bf6b0425d60b36cd877c4d5d34dd05c54f5c1a666979964",
+   "lines": 80,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 658,
+   "sha256": "49d792755e9eefe53083d0bf160c0c94035d1cdaae54bf1efde8d97ad34d297a",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 167,
+   "sha256": "7b454c25b99739f80687869ca8fd28ba49b9704805308e3fd6c04313706b032f",
+   "lines": 10,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 313,
+   "sha256": "432f2ea0c51b254a5522ab3b57bcbf3543068ef4254880625359eafc64c4e645",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 178,
+   "sha256": "8ac48ab14748e15636de687ebaa8c930109a539f55a97ecdc2576b24b9b153fa",
+   "lines": 15,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 3282,
+   "sha256": "92c2d8bee2d5830837a4856d75adeab8d6e9f90b7872f84bf31682430db8734a",
+   "lines": 108,
+   "public": "account"
+  },
+  {
+   "path": "drupal-first-start.php",
+   "size": 3213,
+   "sha256": "0661712b59cfbdbca631411ca105d6499978dc7b94730cf9e8161ced20dce3f4",
+   "lines": 94,
+   "public": "account"
+  },
+  {
+   "path": "drupal-set-password.php",
+   "size": 1302,
+   "sha256": "86074ac3974346715a9f063523a719319e45edef3c9dd0f968c8fb607ac4cc8d",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "drupal-vhost.conf",
+   "size": 947,
+   "sha256": "58bd2ca7103ba0890ccdccd0e6cfbf059f7fd43289bdbce9c358c4aaec707669",
+   "lines": 23,
+   "public": "account"
+  },
+  {
+   "path": "drupal.ini",
+   "size": 491,
+   "sha256": "6fcbdde4d37265d2fe05cbd1673742808583d157aedf2561f3e0eb6122ed125c",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "readystack-mod-php.conf",
+   "size": 390,
+   "sha256": "f8eb513ee5aeec1252dd78f55dab6585ba27cad8b958b89190de7593103d2bba",
+   "lines": 9,
+   "public": "account"
+  },
+  {
+   "path": "readystack-php.conf",
+   "size": 396,
+   "sha256": "d15053c81ce9cba0fdd7c17d7b7456c844629b12ab521b072033baee92655a93",
+   "lines": 13,
+   "public": "account"
+  },
+  {
+   "path": "readystack-php.ini",
+   "size": 281,
+   "sha256": "a6b6e823b84e85b51b368f40de925bea7fcc1c63991e09fcff27fe5705c136ca",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1213,
+   "sha256": "c87b95f9e355954650820642608c7fe63d8ffcdc9247640995d48a3ce914a5b9",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "settings.php",
+   "size": 3375,
+   "sha256": "41d5967241152661822f8ad26301ccff203ea71c1f174b28e591f34ee9a8f799",
+   "lines": 62,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 5,
+   "bytes": 29796854
+  },
+  "docs": {
+   "files": 69,
+   "bytes": 5726571
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 15757,
+   "bytes": 107691260
+  }
+ },
+ "redacted_files": 0
+}

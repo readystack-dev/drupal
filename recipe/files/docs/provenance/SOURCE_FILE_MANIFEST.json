@@ -1,0 +1,10 @@
+{
+  "schema": "kitforge.source_file_manifest.v1",
+  "slug": "drupal",
+  "file_count": 3,
+  "files": [
+    "LICENSE.txt",
+    "composer.json",
+    "composer.lock"
+  ]
+}

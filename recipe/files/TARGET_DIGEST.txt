@@ -1,0 +1,7 @@
+image_manifest_digest=sha256:4b781b0f1987b15518458619f18bab4c9d649a9cebd298634e937818f00a7b6b
+config_digest=sha256:a324189ac3ebd69debe76e8bbd891496a544319f4c0973d8a010c08f6a496326
+tag=readystack/drupal:11.4.13-CE-ubuntu24.04-r2
+probe_port=8080
+probe_path=/user/login
+probe_timeout=180
+verify_secret=DRUPAL_ADMIN_PASSWORD

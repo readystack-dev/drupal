@@ -1,0 +1,108 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "apt",
+      "reason": "CVE-2026-109518: apt 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "libapt-pkg6.0t64",
+      "reason": "CVE-2026-109518: libapt-pkg6.0t64 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "10.42-4ubuntu2.2",
+      "package": "libpcre2-8-0",
+      "reason": "CVE-2026-103111, CVE-2026-86145, CVE-2026-89156, CVE-2026-89157 \u2026: libpcre2-8-0 10.42-4ubuntu2.1 -> 10.42-4ubuntu2.2"
+    },
+    {
+      "min_version": "0.10.6-2ubuntu0.6",
+      "package": "libssh-4",
+      "reason": "USN-9187-1: libssh-4 0.10.6-2ubuntu0.5 -> 0.10.6-2ubuntu0.6"
+    }
+  ],
+  "build_method": "source-rebuild-php",
+  "chain_id": 1224,
+  "dep_bumps": [],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_packages": [
+    "apache2",
+    "libapache2-mod-php8.3",
+    "php8.3-cli",
+    "php8.3-gd",
+    "php8.3-xml",
+    "php8.3-mbstring",
+    "php8.3-curl",
+    "php8.3-zip",
+    "php8.3-sqlite3",
+    "php8.3-mysql",
+    "php8.3-pgsql",
+    "sqlite3",
+    "ca-certificates",
+    "curl",
+    "tzdata"
+  ],
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "drupal",
+  "source": {
+    "app_copies": [
+      {
+        "dst": "/opt/drupal",
+        "src": "."
+      }
+    ],
+    "build_packages": [
+      "git",
+      "unzip",
+      "ca-certificates"
+    ],
+    "commit": "4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
+    "commit_epoch": 1795013074,
+    "composer_install_cmd": "composer require --no-update drupal/core-recommended:11.4.13 drupal/core-composer-scaffold:11.4.13 drupal/core-project-message:11.4.13 drupal/core-recipe-unpack:11.4.13 && composer update --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist && test \"$(php -r \"require 'vendor/autoload.php'; echo \\\\Drupal::VERSION;\")\" = 11.4.13",
+    "php_extensions": [
+      "gd",
+      "dom",
+      "simplexml",
+      "xml",
+      "mbstring",
+      "curl",
+      "zip",
+      "opcache",
+      "pdo_sqlite",
+      "pdo_mysql",
+      "pdo_pgsql",
+      "tokenizer",
+      "fileinfo",
+      "filter",
+      "session",
+      "zlib"
+    ],
+    "php_version": "8.3",
+    "prune_paths": [
+      ".git",
+      "web/core/tests",
+      "web/core/modules/*/tests",
+      "web/core/themes/*/tests",
+      "web/core/profiles/*/tests",
+      "web/core/profiles/*/modules/*/tests",
+      "web/core/recipes/*/tests",
+      "web/core/yarn.lock",
+      "web/core/package.json",
+      "web/core/.yarnrc.yml"
+    ],
+    "ref": "11.4.13",
+    "repo": "https://github.com/drupal/recommended-project",
+    "source_date_epoch": 1795543178,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 11.4.13-CE-ubuntu24.04-r2 was cut (2026-11-24T17:59:38Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 4e9b266a6d0d, dated 2026-11-18T14:44:34Z (source.commit_epoch)."
+  },
+  "version": "11.4.13"
+}

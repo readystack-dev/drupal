@@ -1,0 +1,80 @@
+{
+  "schema": "kitforge.build_recipe.v1",
+  "slug": "drupal",
+  "image": "readystack/drupal:11.4.13-CE-ubuntu24.04-r2",
+  "build_method": "source-rebuild-php",
+  "source": {
+    "repo": "https://github.com/drupal/recommended-project",
+    "ref": "11.4.13",
+    "php_version": "8.3",
+    "_php_version_note": "Drupal 11.4.11 requires PHP >= 8.3.0 (core/lib/Drupal.php MINIMUM_PHP; drupal/core composer.json php >=8.3.0) and recommends 8.4. The image runs Ubuntu 24.04's own PHP 8.3 (8.3.6 with Ubuntu's security backports), as wordpress, bookstack and moodle do: PHP 8.4 on Ubuntu 24.04 would need a third-party archive.",
+    "composer_install_cmd": "composer require --no-update drupal/core-recommended:11.4.13 drupal/core-composer-scaffold:11.4.13 drupal/core-project-message:11.4.13 drupal/core-recipe-unpack:11.4.13 && composer update --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist && test \"$(php -r \"require 'vendor/autoload.php'; echo \\\\Drupal::VERSION;\")\" = 11.4.13",
+    "_composer_note": "drupal/recommended-project's composer.json asks for ^11.4 of each core package; requiring them at exactly 11.4.11 makes the resolved core the release this image is named after, and the final test fails the vendor stage otherwise. composer runs the drupal/core-composer-scaffold plugin, which writes web/index.php, web/.htaccess, web/sites/default/default.settings.php and the other scaffold files. No composer.lock is shipped by the template, so composer resolves the dependency versions at vendor time; they are frozen in the vendored tree (composer.lock and vendor/composer/installed.json are in the archive).",
+    "build_packages": [
+      "git",
+      "unzip",
+      "ca-certificates"
+    ],
+    "php_extensions": [
+      "gd",
+      "dom",
+      "simplexml",
+      "xml",
+      "mbstring",
+      "curl",
+      "zip",
+      "opcache",
+      "pdo_sqlite",
+      "pdo_mysql",
+      "pdo_pgsql",
+      "tokenizer",
+      "fileinfo",
+      "filter",
+      "session",
+      "zlib"
+    ],
+    "_ext_note": "drupal/core composer.json requires ext-date dom filter gd hash json pcre PDO session SimpleXML SPL tokenizer xml zlib; opcache and mbstring are recommended. From Ubuntu's packages: php8.3-gd, -xml (dom, simplexml, xml), -mbstring, -curl (update status and HTTP client), -zip, -sqlite3 (pdo_sqlite, the default database), -mysql (pdo_mysql), -pgsql (pdo_pgsql); opcache with php8.3-cli, the rest with php8.3-common. source.php_extensions is what the build asserts both the Apache and the CLI configuration load.",
+    "prune_paths": [
+      ".git",
+      "web/core/tests",
+      "web/core/modules/*/tests",
+      "web/core/themes/*/tests",
+      "web/core/profiles/*/tests",
+      "web/core/profiles/*/modules/*/tests",
+      "web/core/recipes/*/tests",
+      "web/core/yarn.lock",
+      "web/core/package.json",
+      "web/core/.yarnrc.yml"
+    ],
+    "_prune_note": "Test code only, never loaded by a site (extension discovery skips tests/ directories unless extension_discovery_scan_tests is set): web/core/tests (core's PHPUnit/Nightwatch suite) and every module's, theme's and profile's tests/ directory (their test modules and fixtures). Chain 632's verdict (2026-10-22) counted 5 fixable critical/high plus 4 more from OSV in composer:drupal/core and drupal/core-recommended 9.8.0: those are core/modules/package_manager/tests/fixtures/fake_site/composer.lock and vendor/composer/installed.json, a fake Drupal 9.8.0 site Package Manager's tests stage, which scanners read as installed packages (the image's real core is 11.4.11, /opt/drupal/composer.lock). core/modules/system/tests/fixtures/HtaccessTest carries a composer.lock, package-lock.json and yarn.lock the same way. web/core/package.json and yarn.lock describe the JavaScript build toolchain of core's committed assets, not anything the site runs.",
+    "app_copies": [
+      {
+        "src": ".",
+        "dst": "/opt/drupal"
+      }
+    ],
+    "commit": "4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
+    "source_date_epoch": 1795543178,
+    "source_date_epoch_provenance": "the time release 11.4.13-CE-ubuntu24.04-r2 was cut (2026-11-24T17:59:38Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 4e9b266a6d0d, dated 2026-11-18T14:44:34Z (source.commit_epoch).",
+    "commit_epoch": 1795013074,
+    "source_date_epoch_basis": "release-cut"
+  },
+  "binaries_from_source": null,
+  "runtime_packages": [
+    "apache2",
+    "libapache2-mod-php8.3",
+    "php8.3-cli",
+    "php8.3-gd",
+    "php8.3-xml",
+    "php8.3-mbstring",
+    "php8.3-curl",
+    "php8.3-zip",
+    "php8.3-sqlite3",
+    "php8.3-mysql",
+    "php8.3-pgsql",
+    "sqlite3",
+    "ca-certificates",
+    "curl",
+    "tzdata"
+  ]
+}
