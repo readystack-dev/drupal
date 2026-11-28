@@ -1,6 +1,6 @@
-image_manifest_digest=sha256:4b781b0f1987b15518458619f18bab4c9d649a9cebd298634e937818f00a7b6b
-config_digest=sha256:a324189ac3ebd69debe76e8bbd891496a544319f4c0973d8a010c08f6a496326
-tag=readystack/drupal:11.4.13-CE-ubuntu24.04-r2
+image_manifest_digest=sha256:b0922a4ab3f956ff1d4952a7397e4499c33dff70e15021122af866d7dbfa61a5
+config_digest=sha256:01eecfa1ed141efa2520271a4d39c4ae839c76d7e2382167736866e000102d76
+tag=readystack/drupal:11.4.14-CE-ubuntu24.04-r1
 probe_port=8080
 probe_path=/user/login
 probe_timeout=180

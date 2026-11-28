@@ -33,7 +33,7 @@ RUN chmod 0755 /usr/local/bin/apache2-foreground && \
 RUN for sapi in apache2 cli; do \
       PHP_INI_SCAN_DIR=/etc/php/8.3/$sapi/conf.d php -c /etc/php/8.3/$sapi/php.ini -r '$m = array_map("strtolower", array_merge(get_loaded_extensions(), get_loaded_extensions(true))); $x = array_diff(array_slice($argv, 1), $m); if ($x) { fwrite(STDERR, "missing PHP extensions: " . implode(", ", $x) . "\n"); exit(1); }' "gd" "dom" "simplexml" "xml" "mbstring" "curl" "zip" "zend opcache" "pdo_sqlite" "pdo_mysql" "pdo_pgsql" "tokenizer" "fileinfo" "filter" "session" "zlib" || { echo "for the $sapi configuration"; exit 1; }; \
     done
-ARG SOURCE_DATE_EPOCH=1795543178
+ARG SOURCE_DATE_EPOCH=1795849550
 RUN (getent passwd www-data >/dev/null 2>&1 || (groupadd -r www-data && useradd -r -g www-data -d /opt/drupal www-data)) && \
     mkdir -p /var/lib/drupal /opt/drupal/web/sites/default/files /var/run/apache2 /var/lock/apache2 /var/log/apache2 && \
     : "${SOURCE_DATE_EPOCH:?SOURCE_DATE_EPOCH must be set for a reproducible build}" && \
@@ -47,14 +47,19 @@ COPY drupal-first-start.php /usr/local/lib/readystack/drupal-first-start.php
 COPY drupal-set-password.php /usr/local/lib/readystack/drupal-set-password.php
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod 0444 /opt/drupal/web/sites/default/settings.php && chmod 0644 /usr/local/lib/readystack/drupal-first-start.php && chmod 0644 /usr/local/lib/readystack/drupal-set-password.php && chmod 0755 /usr/local/bin/docker-entrypoint.sh
-RUN phpenmod drupal && sed -ri 's/^Listen 80$/Listen 8080/' /etc/apache2/ports.conf && sed -ri 's/^ServerTokens .*/ServerTokens Prod/; s/^ServerSignature .*/ServerSignature Off/' /etc/apache2/conf-available/security.conf && a2enmod rewrite && printf 'ServerName localhost\n' > /etc/apache2/conf-available/servername.conf && a2enconf servername && chown -R root:root /opt/drupal && chmod 0755 /opt/drupal/web/sites/default && php -l /opt/drupal/web/sites/default/settings.php && php -l /usr/local/lib/readystack/drupal-first-start.php && php -l /usr/local/lib/readystack/drupal-set-password.php && test "$(cd /opt/drupal/web && php -r "require 'autoload.php'; echo \\Drupal::VERSION;")" = 11.4.13 && test -z "$(php -r 'exit(0);' 2>&1)"
+RUN phpenmod drupal && sed -ri 's/^Listen 80$/Listen 8080/' /etc/apache2/ports.conf && sed -ri 's/^ServerTokens .*/ServerTokens Prod/; s/^ServerSignature .*/ServerSignature Off/' /etc/apache2/conf-available/security.conf && a2enmod rewrite && printf 'ServerName localhost\n' > /etc/apache2/conf-available/servername.conf && a2enconf servername && chown -R root:root /opt/drupal && chmod 0755 /opt/drupal/web/sites/default && php -l /opt/drupal/web/sites/default/settings.php && php -l /usr/local/lib/readystack/drupal-first-start.php && php -l /usr/local/lib/readystack/drupal-set-password.php && test "$(cd /opt/drupal/web && php -r "require 'autoload.php'; echo \\Drupal::VERSION;")" = 11.4.14 && test -z "$(php -r 'exit(0);' 2>&1)"
 RUN chown -R www-data:www-data /var/lib/drupal /opt/drupal/web/sites/default/files /var/run/apache2 /var/lock/apache2 /var/log/apache2
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later"
 LABEL org.opencontainers.image.title="Drupal"
 LABEL org.opencontainers.image.description="Drupal, the open-source content management system, as a hardened single container: non-root, installed at its first start with no web installer exposed, on an embedded SQLite database out of the box or on your own MySQL, MariaDB or PostgreSQL."
-LABEL org.opencontainers.image.source="https://github.com/drupal/recommended-project"
-LABEL org.opencontainers.image.version="11.4.13-CE-ubuntu24.04-r2"
-LABEL org.opencontainers.image.revision="4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c"
+LABEL org.opencontainers.image.source="https://github.com/readystack-dev/drupal"
+LABEL org.opencontainers.image.version="11.4.14-CE-ubuntu24.04-r1"
+LABEL org.opencontainers.image.revision="8e3faf842ef787b28a44a4d911c7a493a69ad515"
+LABEL readystack.upstream.source="https://github.com/drupal/recommended-project"
+LABEL org.opencontainers.image.url="https://readystack.dev/products/drupal"
+LABEL org.opencontainers.image.documentation="https://github.com/readystack-dev/drupal#readme"
+LABEL org.opencontainers.image.authors="ReadyStack <contact@readystack.dev>"
+LABEL org.opencontainers.image.vendor="ReadyStack.dev"
 HEALTHCHECK --interval=10s --timeout=10s --start-period=120s \
   CMD curl -fsS -o /dev/null http://127.0.0.1:8080/user/login || exit 1
 USER www-data

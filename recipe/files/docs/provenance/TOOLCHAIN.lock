@@ -19,10 +19,15 @@
       "min_version": "0.10.6-2ubuntu0.6",
       "package": "libssh-4",
       "reason": "USN-9187-1: libssh-4 0.10.6-2ubuntu0.5 -> 0.10.6-2ubuntu0.6"
+    },
+    {
+      "min_version": "2.6.1-2ubuntu0.7",
+      "package": "libexpat1",
+      "reason": "USN-9196-1: libexpat1 2.6.1-2ubuntu0.6 -> 2.6.1-2ubuntu0.7"
     }
   ],
   "build_method": "source-rebuild-php",
-  "chain_id": 1224,
+  "chain_id": 1302,
   "dep_bumps": [],
   "expected_residuals": [],
   "images": [
@@ -64,9 +69,9 @@
       "unzip",
       "ca-certificates"
     ],
-    "commit": "4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
-    "commit_epoch": 1795013074,
-    "composer_install_cmd": "composer require --no-update drupal/core-recommended:11.4.13 drupal/core-composer-scaffold:11.4.13 drupal/core-project-message:11.4.13 drupal/core-recipe-unpack:11.4.13 && composer update --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist && test \"$(php -r \"require 'vendor/autoload.php'; echo \\\\Drupal::VERSION;\")\" = 11.4.13",
+    "commit": "8e3faf842ef787b28a44a4d911c7a493a69ad515",
+    "commit_epoch": 1795624985,
+    "composer_install_cmd": "composer require --no-update drupal/core-recommended:11.4.14 drupal/core-composer-scaffold:11.4.14 drupal/core-project-message:11.4.14 drupal/core-recipe-unpack:11.4.14 && composer update --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist && test \"$(php -r \"require 'vendor/autoload.php'; echo \\\\Drupal::VERSION;\")\" = 11.4.14",
     "php_extensions": [
       "gd",
       "dom",
@@ -98,11 +103,11 @@
       "web/core/package.json",
       "web/core/.yarnrc.yml"
     ],
-    "ref": "11.4.13",
+    "ref": "11.4.14",
     "repo": "https://github.com/drupal/recommended-project",
-    "source_date_epoch": 1795543178,
+    "source_date_epoch": 1795849550,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release 11.4.13-CE-ubuntu24.04-r2 was cut (2026-11-24T17:59:38Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 4e9b266a6d0d, dated 2026-11-18T14:44:34Z (source.commit_epoch)."
+    "source_date_epoch_provenance": "the time release 11.4.14-CE-ubuntu24.04-r1 was cut (2026-11-28T07:05:50Z), by scripts/retarget.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 8e3faf842ef7, dated 2026-11-25T16:43:05Z (source.commit_epoch)."
   },
-  "version": "11.4.13"
+  "version": "11.4.14"
 }

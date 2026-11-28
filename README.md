@@ -6,13 +6,13 @@
 
 # Drupal: ReadyStack build kit
 
-The offline build kit for the Docker image `readystack/drupal:11.4.13-CE-ubuntu24.04-r2`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
+The offline build kit for the Docker image `readystack/drupal:11.4.14-CE-ubuntu24.04-r1`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
 
-- Release: [11.4.13-CE-ubuntu24.04-r2](https://github.com/readystack-dev/drupal/releases/tag/11.4.13-CE-ubuntu24.04-r2)
-- Image: [`docker.io/readystack/drupal:11.4.13-CE-ubuntu24.04-r2`](https://hub.docker.com/r/readystack/drupal/tags), manifest digest `sha256:4b781b0f1987b15518458619f18bab4c9d649a9cebd298634e937818f00a7b6b`
+- Release: [11.4.14-CE-ubuntu24.04-r1](https://github.com/readystack-dev/drupal/releases/tag/11.4.14-CE-ubuntu24.04-r1)
+- Image: [`docker.io/readystack/drupal:11.4.14-CE-ubuntu24.04-r1`](https://hub.docker.com/r/readystack/drupal/tags), manifest digest `sha256:b0922a4ab3f956ff1d4952a7397e4499c33dff70e15021122af866d7dbfa61a5`
 - Product page: https://readystack.dev/products/drupal
 - Source and build recipe: https://readystack.dev/products/drupal/recipe
-- Build trail: https://readystack.dev/products/drupal/trail/11.4.13-CE-ubuntu24.04-r2
+- Build trail: https://readystack.dev/products/drupal/trail/11.4.14-CE-ubuntu24.04-r1
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=drupal
 
 ## The image
@@ -31,12 +31,12 @@ From the upstream project's own description: https://github.com/drupal/drupal, h
 
 ## This release
 
-- Docker Scout policy grade at release: **A** (94%), graded 2026-11-25 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-28 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
   - Docker Scout counts 143 packages with copyleft licences (GPL, LGPL, MPL), 138 of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
 - Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
 - Runs as a non-root user (`www-data`).
 - Attestations on the image: an SPDX SBOM and SLSA provenance v1.
-- Rebuilt from this kit with network egress blocked on 2026-11-24; the rebuilt image digest is the published one.
+- Rebuilt from this kit with network egress blocked on 2026-11-28; the rebuilt image digest is the published one.
 - Base: Ubuntu 24.04.
 
 The current grade, measured again every day, is on https://readystack.dev/products/drupal.
@@ -45,7 +45,7 @@ Drupal is distributed under its upstream licence (GPL-2.0-or-later); the kit con
 
 ## Download
 
-From the [11.4.13-CE-ubuntu24.04-r2 release](https://github.com/readystack-dev/drupal/releases/tag/11.4.13-CE-ubuntu24.04-r2): `ReadyStack-drupal-11.4.13-CE-ubuntu24.04-r2.tar.gz` (192.8 MB), SHA-256 `4b2604f00bd2f7d2a85deff85008c5e77dc57b0e39b46ec875a4ecdded87168f`.
+From the [11.4.14-CE-ubuntu24.04-r1 release](https://github.com/readystack-dev/drupal/releases/tag/11.4.14-CE-ubuntu24.04-r1): `ReadyStack-drupal-11.4.14-CE-ubuntu24.04-r1.tar.gz` (192.9 MB), SHA-256 `197ef3854ebb9052462b0479a5af9ad998970f7cb8c9d91fa85f6213effee872`.
 
 ```sh
 sha256sum --check --ignore-missing SHA256SUMS
@@ -57,18 +57,18 @@ The rebuild statement is signed with the ReadyStack release key. Check the signa
 
 ```sh
 cosign verify-blob --key https://readystack.dev/keys/cosign.pub \
-  --bundle ReadyStack-drupal-11.4.13-CE-ubuntu24.04-r2.rebuild.json.sigstore ReadyStack-drupal-11.4.13-CE-ubuntu24.04-r2.rebuild.json
+  --bundle ReadyStack-drupal-11.4.14-CE-ubuntu24.04-r1.rebuild.json.sigstore ReadyStack-drupal-11.4.14-CE-ubuntu24.04-r1.rebuild.json
 ```
 
 Unpack with `-p` so file modes are kept, then follow the kit's own README.md and docs/REBUILD.md:
 
 ```sh
-tar -xpzf ReadyStack-drupal-11.4.13-CE-ubuntu24.04-r2.tar.gz
-cd 11.4.13-CE-ubuntu24.04-r2
+tar -xpzf ReadyStack-drupal-11.4.14-CE-ubuntu24.04-r1.tar.gz
+cd 11.4.14-CE-ubuntu24.04-r1
 less README.md docs/REBUILD.md
 ```
 
-The build trail (`ReadyStack-drupal-11.4.13-CE-ubuntu24.04-r2.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
+The build trail (`ReadyStack-drupal-11.4.14-CE-ubuntu24.04-r1.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
 
 ## This repository
 

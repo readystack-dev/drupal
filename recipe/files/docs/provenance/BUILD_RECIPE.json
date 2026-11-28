@@ -1,14 +1,14 @@
 {
   "schema": "kitforge.build_recipe.v1",
   "slug": "drupal",
-  "image": "readystack/drupal:11.4.13-CE-ubuntu24.04-r2",
+  "image": "readystack/drupal:11.4.14-CE-ubuntu24.04-r1",
   "build_method": "source-rebuild-php",
   "source": {
     "repo": "https://github.com/drupal/recommended-project",
-    "ref": "11.4.13",
+    "ref": "11.4.14",
     "php_version": "8.3",
     "_php_version_note": "Drupal 11.4.11 requires PHP >= 8.3.0 (core/lib/Drupal.php MINIMUM_PHP; drupal/core composer.json php >=8.3.0) and recommends 8.4. The image runs Ubuntu 24.04's own PHP 8.3 (8.3.6 with Ubuntu's security backports), as wordpress, bookstack and moodle do: PHP 8.4 on Ubuntu 24.04 would need a third-party archive.",
-    "composer_install_cmd": "composer require --no-update drupal/core-recommended:11.4.13 drupal/core-composer-scaffold:11.4.13 drupal/core-project-message:11.4.13 drupal/core-recipe-unpack:11.4.13 && composer update --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist && test \"$(php -r \"require 'vendor/autoload.php'; echo \\\\Drupal::VERSION;\")\" = 11.4.13",
+    "composer_install_cmd": "composer require --no-update drupal/core-recommended:11.4.14 drupal/core-composer-scaffold:11.4.14 drupal/core-project-message:11.4.14 drupal/core-recipe-unpack:11.4.14 && composer update --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist && test \"$(php -r \"require 'vendor/autoload.php'; echo \\\\Drupal::VERSION;\")\" = 11.4.14",
     "_composer_note": "drupal/recommended-project's composer.json asks for ^11.4 of each core package; requiring them at exactly 11.4.11 makes the resolved core the release this image is named after, and the final test fails the vendor stage otherwise. composer runs the drupal/core-composer-scaffold plugin, which writes web/index.php, web/.htaccess, web/sites/default/default.settings.php and the other scaffold files. No composer.lock is shipped by the template, so composer resolves the dependency versions at vendor time; they are frozen in the vendored tree (composer.lock and vendor/composer/installed.json are in the archive).",
     "build_packages": [
       "git",
@@ -53,10 +53,10 @@
         "dst": "/opt/drupal"
       }
     ],
-    "commit": "4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
-    "source_date_epoch": 1795543178,
-    "source_date_epoch_provenance": "the time release 11.4.13-CE-ubuntu24.04-r2 was cut (2026-11-24T17:59:38Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 4e9b266a6d0d, dated 2026-11-18T14:44:34Z (source.commit_epoch).",
-    "commit_epoch": 1795013074,
+    "commit": "8e3faf842ef787b28a44a4d911c7a493a69ad515",
+    "source_date_epoch": 1795849550,
+    "source_date_epoch_provenance": "the time release 11.4.14-CE-ubuntu24.04-r1 was cut (2026-11-28T07:05:50Z), by scripts/retarget.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 8e3faf842ef7, dated 2026-11-25T16:43:05Z (source.commit_epoch).",
+    "commit_epoch": 1795624985,
     "source_date_epoch_basis": "release-cut"
   },
   "binaries_from_source": null,

@@ -2,8 +2,8 @@
   "schema": "kitforge.source_tree_hash.v1",
   "slug": "drupal",
   "repo": "https://github.com/drupal/recommended-project",
-  "ref": "11.4.13",
-  "commit": "4e9b266a6d0dc3c91952365c74bb31dfb0ab0a1c",
+  "ref": "11.4.14",
+  "commit": "8e3faf842ef787b28a44a4d911c7a493a69ad515",
   "tree_listing_sha256": "e44288fed4cc8f7380266fa9f98c765a4dba7a944569bb7116f16c55cafb83bb",
   "file_count": 3
 }
